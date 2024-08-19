@@ -5,6 +5,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 const slides = [
   {
@@ -39,9 +40,12 @@ export default function HomeBanner() {
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
           <div className="w-full h-full relative">
-            <img
+            <Image
               src={slide.image}
               alt={slide.title}
+              width={0}
+              height={0}
+              sizes="100vw"
               className="w-full h-full object-cover"
             />
 

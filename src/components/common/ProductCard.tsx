@@ -15,7 +15,7 @@ export default function ProductCard({ product }: Props) {
       {/* amazon choice */}
       {choice && (
         <div className="w-max py-1.5 px-2 text-[10px] bg-primary-text text-white">
-          Amazon's <span className="text-primary">Choice</span>
+          Amazon <span className="text-primary">Choice</span>
         </div>
       )}
       {/* image */}

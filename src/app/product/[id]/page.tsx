@@ -91,7 +91,7 @@ export default function Product() {
                 </button>
               </div>
               <h2 className="text-primary-text font-medium text-3xl">
-                Nike Blazer Mid '77 Vintage
+                Nike Blazer Mid 77 Vintage
               </h2>
               <p className="text-4xl font-medium">$169</p>
               <span className="text-xs text-zinc-400">1.3435 reviews</span>
