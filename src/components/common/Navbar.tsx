@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Menu, SearchIcon, ShoppingCart } from "lucide-react";
+import {
+  ChevronDown,
+  Heart,
+  Menu,
+  SearchIcon,
+  ShoppingCart,
+} from "lucide-react";
 import logo from "@/assets/images/amazon_logo.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +16,11 @@ import { useRouter } from "next/navigation";
 export default function Navbar() {
   const [searchInput, setSearchInput] = useState<string>("");
   const router = useRouter();
+
+  const search = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push(`/search?q=${searchInput}`);
+  };
 
   return (
     <header className="h-[72px] bg-primary-text flex items-center">
@@ -28,7 +39,7 @@ export default function Navbar() {
             <div>
               <p className="text-xs text-white/50">Select</p>
               <button
-                className="flex items-center gap-1 text-white"
+                className="flex items-center gap-1 text-white text-sm"
                 onClick={() => router.push("/categories")}
               >
                 Category
@@ -37,7 +48,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <form className="flex items-center grow h-10">
+          <form className="flex items-center grow h-10" onSubmit={search}>
             <div className="w-full rounded-lg flex items-center h-full bg-primary-text-900/50 border border-zinc-700">
               <input
                 type="text"
@@ -46,11 +57,7 @@ export default function Navbar() {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
-              <button
-                type="button"
-                className="bg-transparent h-full px-3"
-                onClick={() => router.push(`/search?q=${searchInput}`)}
-              >
+              <button type="submit" className="bg-transparent h-full px-3">
                 <SearchIcon className="text-primary" />
               </button>
             </div>
@@ -60,18 +67,21 @@ export default function Navbar() {
         {/* user - cart */}
         <div className="flex justify-end gap-6">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-yellow-500" />
+            {/* <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-yellow-500" /> */}
             <div>
               <p className="text-xs text-white/70">Hola Nicolas</p>
               <p className="text-sm font-semibold text-white">Cuenta y lista</p>
             </div>
           </div>
 
-          <button className="relative">
-            <ShoppingCart size={28} className="text-white" />
-            <p className="absolute -top-[7px] left-3 text-primary text-sm font-extrabold">
+          <button
+            type="button"
+            className="relative bg-primary rounded-lg h-10 w-10 flex justify-center items-center"
+          >
+            <ShoppingCart size={20} className="text-primary-text" />
+            <div className="absolute -top-1.5 -right-1.5 bg-white w-4 h-4 rounded-full text-[10px] font-medium flex items-center justify-center">
               1
-            </p>
+            </div>
           </button>
         </div>
       </nav>
