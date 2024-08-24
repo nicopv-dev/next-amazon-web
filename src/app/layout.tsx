@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
+import ProgressProvider from "@/providers/progress-provider";
+import { cn } from "@/lib/utils";
 
-const font = Roboto({
+const font = Poppins({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
 });
@@ -21,10 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>
-        <Navbar />
-        {children}
-        {/* <Footer /> */}
+      <body className={cn(font.className)}>
+        <ProgressProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ProgressProvider>
       </body>
     </html>
   );

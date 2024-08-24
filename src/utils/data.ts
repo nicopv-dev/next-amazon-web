@@ -1,4 +1,3 @@
-import Product from "@/types/product";
 import { faker } from "@faker-js/faker";
 
 export const FAKE_PRODUCTS = (length?: number) =>
@@ -8,4 +7,5 @@ export const FAKE_PRODUCTS = (length?: number) =>
     brand: faker.company.name(),
     price: faker.commerce.price(),
     choice: faker.datatype.boolean(),
+    raiting: faker.number.int({ min: 1, max: 5 }),
   }));

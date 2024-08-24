@@ -40,7 +40,20 @@ const config = {
           800: "#663C00",
           900: "#331E00",
           bg: "#EEF3F9",
-          text: "#141B24",
+          text: {
+            DEFAULT: "#141B24",
+            50: "#f5f7fa",
+            100: "#eaeef4",
+            200: "#d0dbe7",
+            300: "#a6bed3",
+            400: "#769aba",
+            500: "#557da2",
+            600: "#416488",
+            700: "#36516e",
+            800: "#30465c",
+            900: "#2c3c4e",
+            950: "#141b24",
+          },
         },
         secondary: {
           DEFAULT: "#FFB700",
@@ -85,7 +98,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
 } satisfies Config;
 
 export default config;

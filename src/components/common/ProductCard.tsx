@@ -2,13 +2,14 @@ import logo from "@/assets/images/amazon_prime_logo.png";
 import Product from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
+import { Rating } from "@mui/material";
 
 interface Props {
   product: Product;
 }
 
 export default function ProductCard({ product }: Props) {
-  const { brand, title, choice } = product;
+  const { brand, title, choice, raiting } = product;
 
   return (
     <article className="flex flex-col justify-end gap-2">
@@ -20,7 +21,7 @@ export default function ProductCard({ product }: Props) {
       )}
       {/* image */}
       <Link
-        href={"/product/mk1n21BSB6salnvu6BFSAK"}
+        href={`/product/${product.id}`}
         className="overflow-hidden rounded-md"
       >
         <Image
@@ -36,29 +37,18 @@ export default function ProductCard({ product }: Props) {
       {/* info */}
       <div className="flex flex-col gap-2">
         {/* title */}
-        <Link
-          href={"/product/mk1n21BSB6salnvu6BFSAK"}
-          className="text-black font-bold"
-        >
+        <Link href={`/product/${product.id}`} className="text-black font-bold">
           <span className="line-clamp-1">{brand}</span>
           <span className="text-black font-light line-clamp-2">{title}</span>
         </Link>
 
         {/* data */}
         <div>
-          <p className="text-xl flex text-tertiary">
-            $80
-            <span className="text-xs text-tertiary">00</span>
-          </p>
+          <Rating name="read-only" value={raiting} readOnly />
+          <p className="text-2xl flex text-black font-medium">$80,99</p>
 
           <div className="flex items-center gap-1.5">
-            <Image
-              src={logo}
-              alt="Amazon Prime"
-              width={36}
-              height={12}
-              objectFit="contain"
-            />
+            <Image src={logo} alt="Amazon Prime" width={36} height={12} />
             <div className="flex flex-col">
               <p className="text-[10px] text-black/30">
                 Obtenlo el{" "}

@@ -1,9 +1,5 @@
 import ProductCard from "@/components/common/ProductCard";
 import { FAKE_PRODUCTS } from "@/utils/data";
-import Image from "next/image";
-import prime from "@/assets/images/amazon_prime_logo.png";
-import { Checkbox } from "@/components/ui/checkbox";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,8 +8,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Slider } from "@/components/ui/slider";
-import { LayoutGrid, MenuIcon, SlashIcon } from "lucide-react";
+import { ChevronsRightIcon, LayoutGrid, MenuIcon } from "lucide-react";
+import SearchSidebar from "@/components/search/SearchSidebar";
 
 export default function Search() {
   return (
@@ -27,15 +23,15 @@ export default function Search() {
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator>
-              <SlashIcon color="gray" />
+              <ChevronsRightIcon className="text-gray-400" />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/components" className="text-gray-400">
-                Categoria
+              <BreadcrumbLink href="/calzado" className="text-gray-400">
+                Calzado
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator>
-              <SlashIcon color="gray" />
+              <ChevronsRightIcon className="text-gray-400" />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
               <BreadcrumbPage>Zapatillas</BreadcrumbPage>
@@ -46,49 +42,9 @@ export default function Search() {
 
       <hr />
 
-      <div className="flex py-4 gap-10">
+      <div className="flex py-4 gap-8">
         {/* sidebar filters */}
-        <aside className="w-72 bg-white">
-          <div className="h-screen sticky top-2 left-0 flex flex-col gap-6">
-            {/* prime filter */}
-            <div>
-              <h4 className="text-black font-bold text-xs">Amazon prime</h4>
-              <ul>
-                <li className="flex items-center gap-1.5">
-                  <Checkbox id="prime" />
-                  <Image
-                    alt="Amazon Prime"
-                    src={prime}
-                    width={36}
-                    height={12}
-                  />
-                </li>
-              </ul>
-            </div>
-
-            {/* price filter */}
-            <div className="space-y-2">
-              <h4 className="text-black font-bold text-xs">Precio</h4>
-              <Slider defaultValue={[33]} max={100} step={1} />
-            </div>
-
-            {/* type filter */}
-            <div>
-              <h4 className="text-black font-bold text-xs">Tipo</h4>
-            </div>
-
-            {/* color filter */}
-            <div>
-              <h4 className="text-black font-bold text-xs">Color</h4>
-            </div>
-
-            <div>
-              <button className="bg-secondary text-white py-2 w-full rounded-md text-sm">
-                Limpiar filtros
-              </button>
-            </div>
-          </div>
-        </aside>
+        <SearchSidebar />
 
         {/* results */}
         <div className="w-full flex flex-col gap-4">

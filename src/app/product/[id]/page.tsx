@@ -1,4 +1,4 @@
-import { Bookmark, LucideShoppingCart, SlashIcon } from "lucide-react";
+import { Bookmark, ChevronsRightIcon, LucideShoppingCart } from "lucide-react";
 import Image from "next/image";
 
 import {
@@ -22,18 +22,18 @@ export default function Product() {
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator>
-              <SlashIcon color="gray" />
+              <ChevronsRightIcon className="text-gray-400" />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/components" className="text-gray-400">
-                Categoria
+              <BreadcrumbLink href="#" className="text-gray-400">
+                Shoes
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator>
-              <SlashIcon color="gray" />
+              <ChevronsRightIcon className="text-gray-400" />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
-              <BreadcrumbPage>Zapatillas</BreadcrumbPage>
+              <BreadcrumbPage>Nike Blazer Mid 77 Vintage</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
