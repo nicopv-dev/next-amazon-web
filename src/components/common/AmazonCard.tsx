@@ -12,7 +12,7 @@ export function AmazonCard({ className }: Props) {
     <div
       className={cn(
         className,
-        "w-56 h-32 bg-white rounded-lg flex justify-center items-center card-shadow transition-all duration-200 ease-in-out translate-y-0 hover:-translate-y-2"
+        "w-56 h-36 bg-white rounded-lg flex justify-center items-center card-shadow transition-all duration-200 ease-in-out translate-y-0 hover:-translate-y-2"
       )}
     >
       <Image src={amazon} alt="amazon" width={100} height={80} />

@@ -34,8 +34,8 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <AmazonCard className="absolute top-0 right-80 z-20 -rotate-6" />
-        <AmazonCardBlack className="absolute bottom-0 z-10 right-32 rotate-6" />
+        <AmazonCard className="absolute -top-4 right-80 z-20 -rotate-6" />
+        <AmazonCardBlack className="absolute -bottom-4 z-10 right-28 rotate-3" />
       </section>
 
       {/* history browser */}
